@@ -1,1 +1,57 @@
 
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Texte Aléatoire</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button onclick="genererTexteAleatoire(10)">Générer un texte</button>
+        <p id="texte"></p>
+    </div>
+
+    <script>
+        // Liste des mots disponibles
+        const mots = ["zib", "zab", "zub", "bla", "blu"];
+
+        // Fonction pour générer un texte aléatoire
+        function genererTexteAleatoire(n) {
+            let texte = [];
+            for (let i = 0; i < n; i++) {
+                // Choisir un mot aléatoire dans la liste
+                let motAleatoire = mots[Math.floor(Math.random() * mots.length)];
+                texte.push(motAleatoire);
+            }
+            // Joindre les mots pour former une phrase et afficher dans le paragraphe
+            document.getElementById("texte").innerText = texte.join(' ');
+        }
+    </script>
+
+</body>
+</html>
